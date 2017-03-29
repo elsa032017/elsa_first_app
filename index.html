@@ -19,7 +19,7 @@
      </style>
    </head>
    <body>
-     <h1> click a list item to replace this text
+     <h1 id='our-headline'> click a list item to replace this text
      </h1>
      <button id="our-button">add new item </button>
 <ul id="our-list">
@@ -31,14 +31,21 @@
 
  </ul>
  <script>
+ var ourList = getElementById('our-list')
+ var ourHeadline = document.getElementById("our-headline");
  var listItems = document.getElementById("our-list").getElementsByTagName("li");
  var ourButton = document.getElementById("our-button");
+
  for (geo = 0; geo < listItems.length; geo++ ){
-  listItems[geo].addEventlistener("click", activateItem);
+  listItems[geo].addEventListener("click", activateItem);
 }
 
 function activateItem(){
-  alert('click detected');
+  ourHeadline.innerHTML = this.innerHTML
+}
+ourButton.addEventListener('click', createNewItem);
+function createNewItem(){
+  ourList.innerHTML += 'yuppi!!!!';
 }
  </script>
 
